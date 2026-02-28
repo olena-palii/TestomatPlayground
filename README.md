@@ -27,14 +27,20 @@ A project for reproducing and debugging [Testomat.io](https://testomat.io) bugs,
 
 ## Usage
 
+### Sync tests with Testomat.io
+
+```bash
+npm run sync
+```
+
 ### Run Playwright tests locally
 
 ```bash
 npm run test
 ```
 
-### Sync tests with Testomat.io
+### Run tests locally and push results to Testomat
 
 ```bash
-npm run sync
+npm run test-run
 ```
