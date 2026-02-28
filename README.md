@@ -1,6 +1,6 @@
 # Testomat Playground
 
-A project for reproducing and debugging [Testomat.io](https://testomat.io) bugs, built with [Playwright](https://playwright.dev/).
+A project for experimenting with [Testomat.io](https://testomat.io), built with [Playwright](https://playwright.dev/).
 
 ## Prerequisites
 
