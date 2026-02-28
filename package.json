@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "sync": "npx check-tests@latest playwright \"**/*.spec.ts\" --typescript --update-ids --no-empty"
+    "sync": "npx check-tests@latest playwright \"**/tests/**/*.spec.ts\" --typescript --update-ids --no-empty"
   },
   "repository": {
     "type": "git",
