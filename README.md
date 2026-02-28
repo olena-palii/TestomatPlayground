@@ -19,10 +19,10 @@ A project for reproducing and debugging [Testomat.io](https://testomat.io) bugs,
    ```bash
    cp .env.example .env
    ```
-
 3. Connect GitHub to Testomat.io for CI integration:
 
    * [GitHub CI setup guide](https://docs.testomat.io/integrations/continuous-integration/github/)
+   * Add PAT as GH_TOKEN to GitHub repository > Settings > Secret and variables > Actions > Repository secrets
    * Enable grep, run and testomatio input variables
 
 ## Usage
