@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test'
 
-type FruitsType = "apple" | "banana" | "orange";
+type FruitsType = "apple" | "banana" | "orange" | "grape" | "kiwi";
 
 test.describe("Parameterized Tests in Loop @S49731617", () => {
-    const testValues1: Array<FruitsType> = ["apple", "banana", "orange"];
+    const testValues1: Array<FruitsType> = ["apple", "banana", "orange", "grape", "kiwi"];
     for (const testValue of testValues1) {
         const fruitName = testValue.toUpperCase();
         test(`API 1.0 - TestA - ${fruitName} @Tf14fa20d`, async () => {
