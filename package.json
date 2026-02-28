@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx playwright test",
     "test-run": "npx @testomatio/reporter run \"npm test\"",
-    "sync": "npx check-tests@latest playwright \"**/tests/**/*.spec.ts\" --typescript --update-ids --no-empty"
+    "sync": "npx check-tests@latest playwright \"**/tests/**/*.spec.ts\" --typescript --update-ids --no-empty --test-alias deTest"
   },
   "repository": {
     "type": "git",
