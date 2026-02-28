@@ -13,9 +13,25 @@ on:
         required: false
 
 jobs:
+  start-run:
+    name: Start Testomatio Run
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Testomatio reporter
+      run: npm install @testomatio/reporter --save-dev
+
+    - name: Start Testomatio run
+      run: npx @testomatio/reporter start
+      env:
+        TESTOMATIO: "${{ github.event.inputs.testomatio }}"
+        TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
+
   test:
     name: Testomatio Shard ${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
     runs-on: ubuntu-latest
+    needs: [start-run]
     strategy:
       fail-fast: false
       matrix:
@@ -44,7 +60,7 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     - name: Run Playwright tests (shard ${{ matrix.shardIndex }}/${{ matrix.shardTotal }})
-      run: TESTOMATIO_DEBUG=1 npx playwright test --grep "${{ github.event.inputs.grep }}" --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      run: TESTOMATIO_DEBUG=1 TESTOMATIO_PROCEED=1 npx playwright test --grep "${{ github.event.inputs.grep }}" --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
       env:
         TESTOMATIO: "${{ github.event.inputs.testomatio }}"
         TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
@@ -64,3 +80,19 @@ jobs:
         name: playwright-report-shard-${{ matrix.shardIndex }}
         path: playwright-report/
         retention-days: 7
+
+  finish-run:
+    name: Finish Testomatio Run
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Testomatio reporter
+      run: npm install @testomatio/reporter --save-dev
+
+    - name: Finish Testomatio run
+      run: npx @testomatio/reporter finish
+      env:
+        TESTOMATIO: "${{ github.event.inputs.testomatio }}"
+        TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
