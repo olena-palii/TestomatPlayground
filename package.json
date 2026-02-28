@@ -1,0 +1,29 @@
+{
+  "name": "testomatplayground",
+  "version": "1.0.0",
+  "description": "Project to reproduce Testomat bugs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "sync": "npx check-tests@latest Playwright --typescript --update-ids --no-empty **/*.spec.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olena-palii/TestomatPlayground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olena-palii/TestomatPlayground/issues"
+  },
+  "homepage": "https://github.com/olena-palii/TestomatPlayground#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@testomatio/reporter": "^2.6.3",
+    "@types/node": "^25.3.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1"
+  }
+}
