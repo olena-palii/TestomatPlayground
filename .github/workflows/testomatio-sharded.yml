@@ -84,7 +84,8 @@ jobs:
   finish-run:
     name: Finish Testomatio Run
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: [start-run, test]
+    if: ${{ needs.start-run.result == 'success' && (needs.test.result == 'success' || needs.test.result == 'failure') }}
     steps:
     - uses: actions/checkout@v4
 
