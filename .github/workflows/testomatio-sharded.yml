@@ -60,7 +60,7 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     - name: Run Playwright tests (shard ${{ matrix.shardIndex }}/${{ matrix.shardTotal }})
-      run: TESTOMATIO_DEBUG=1 TESTOMATIO_PROCEED=1 npx playwright test --grep "${{ github.event.inputs.grep }}" --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      run: TESTOMATIO_DEBUG=1 TESTOMATIO_PROCEED=1 TESTOMATIO_PROCEED=1 TESTOMATIO_INTERCEPT_CONSOLE_LOGS=1 TESTOMATIO_STACK_PASSED=1 TESTOMATIO_ENV=TEST npx playwright test --grep "${{ github.event.inputs.grep }}" --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
       env:
         TESTOMATIO: "${{ github.event.inputs.testomatio }}"
         TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
