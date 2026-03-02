@@ -39,13 +39,13 @@ test.describe("Skipped Tests in Short Run @S583f2ad7 @skip", () => {
     });
     test('Test 7 @T383d6c0c', async () => {
         console.log('Test 7 started: ' + new Date().toLocaleString());
-        await new Promise(resolve => setTimeout(resolve, 60000));
+        await new Promise(resolve => setTimeout(resolve, 5000));
         expect(1 + 1).toBe(2)
         console.log('Test 7 finished: ' + new Date().toLocaleString());
     });
     test('Test 8 @Tc752e661', async () => {
         console.log('Test 8 started: ' + new Date().toLocaleString());
-        await new Promise(resolve => setTimeout(resolve, 60000));
+        await new Promise(resolve => setTimeout(resolve, 5000));
         expect(1 + 1).toBe(2)
         console.log('Test 8 finished: ' + new Date().toLocaleString());
     });
@@ -60,5 +60,33 @@ test.describe("Skipped Tests in Short Run @S583f2ad7 @skip", () => {
         await new Promise(resolve => setTimeout(resolve, 1000));
         expect(1 + 1).toBe(2)
         console.log('Test 10 finished: ' + new Date().toLocaleString());
+    });
+    test('Test 11 (flaky) @Td4d22a41', async () => {
+        console.log('Test 11 started: ' + new Date().toLocaleString());
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const random = Math.floor(Math.random() * 2);
+        expect(1).toBe(random)
+        console.log('Test 11 finished: ' + new Date().toLocaleString());
+    });
+    test('Test 12 (flaky) @Te38a93fa', async () => {
+        console.log('Test 12 started: ' + new Date().toLocaleString());
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const random = Math.floor(Math.random() * 2);
+        expect(1).toBe(random)
+        console.log('Test 12 finished: ' + new Date().toLocaleString());
+    });
+    test('Test 13 (flaky) @T19e8c5cd', async () => {
+        console.log('Test 13 started: ' + new Date().toLocaleString());
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const random = Math.floor(Math.random() * 2);
+        expect(1).toBe(random)
+        console.log('Test 13 finished: ' + new Date().toLocaleString());
+    });
+    test('Test 14 (flaky) @Tf398b5aa', async () => {
+        console.log('Test 14 started: ' + new Date().toLocaleString());
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const random = Math.floor(Math.random() * 2);
+        expect(1).toBe(random)
+        console.log('Test 14 finished: ' + new Date().toLocaleString());
     });
 });
