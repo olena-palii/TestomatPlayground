@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test.describe("Skipped Tests in Short Run @S583f2ad7 @skip", () => {
-    test('Test 1 @T02b0c10b', async () => {
+    test('Test 1 (failed) @T02b0c10b', async () => {
         console.log('Test 1 started: ' + new Date().toLocaleString());
         await new Promise(resolve => setTimeout(resolve, 1000));
         expect(1 + 1).toBe(4)
