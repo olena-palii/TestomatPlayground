@@ -1,4 +1,4 @@
-name: Testomatio Sharded Run
+name: Testomatio Proceed Run
 
 on:
   workflow_dispatch:
